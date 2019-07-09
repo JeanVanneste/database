@@ -38,10 +38,22 @@ ORDER BY arbres.espece, stock.prix;
 5. Requête pour augmenter de 10% le prix de vente de tous les pins
 ```sql
 UPDATE stock INNER JOIN arbres ON stock.espece = arbres.id
-SET stock.prix = 
-    (stock.prix * 1.1)
+SET stock.prix = (stock.prix * 1.1)
 WHERE arbres.espece = 'Pin';
 ```
 6. Requête pour afficher tous les prix (HTVA) et les les prix (TVAC) pour les chênes de tout les vendeurs
+```sql
+SELECT vendeur.nom, vendeur.prenom, stock.prix AS `prix (HTVA)`, (stock.prix * 1.21) AS `prix (TVAC)` 
+FROM stock INNER JOIN arbres ON arbres.id = stock.espece
+INNER JOIN vendeur ON vendeur.id = stock.vendeur
+WHERE arbres.espece = 'Chêne';
+```
 
 7. Requête permettant d'extraire les informations nécessaires pour créer des étiquettes d'adresses pour tout les vendeurs de 7531 Tournai
+```sql
+SELECT CONCAT(vendeur.nom,' ', vendeur.prenom, '\n', adresse.rue, ' ', adresse.numero, '\n7531 TOURNAI\n', pays.code, ' ', pays.nom) AS Étiquette
+FROM vendeur INNER JOIN adresse ON vendeur.adresse = adresse.id
+    INNER JOIN ville ON ville.codePostal = adresse.codePostal
+    INNER JOIN pays ON pays.code = adresse.codePays
+WHERE ville.codePostal = 7531 AND ville.nom = 'TOURNAI';
+```
