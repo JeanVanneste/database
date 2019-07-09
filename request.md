@@ -36,7 +36,12 @@ JOIN pays ON adresse.codePays = pays.code
 ORDER BY arbres.espece, stock.prix; 
 ```
 5. Requête pour augmenter de 10% le prix de vente de tous les pins
-
+```sql
+UPDATE stock INNER JOIN arbres ON stock.espece = arbres.id
+SET stock.prix = 
+    (stock.prix * 1.1)
+WHERE arbres.espece = 'Pin';
+```
 6. Requête pour afficher tous les prix (HTVA) et les les prix (TVAC) pour les chênes de tout les vendeurs
 
 7. Requête permettant d'extraire les informations nécessaires pour créer des étiquettes d'adresses pour tout les vendeurs de 7531 Tournai
