@@ -49,7 +49,7 @@ INNER JOIN vendeur ON vendeur.id = stock.vendeur
 WHERE arbres.espece = 'Chêne';
 ```
 
-7. Requête permettant d'extraire les informations nécessaires pour créer des étiquettes d'adresses pour tout les vendeurs de 7531 Tournai
+7. Requête permettant d'extraire les informations nécessaires pour créer des étiquettes d'adresses pour tous les vendeurs de 7531 Tournai
 ```sql
 SELECT CONCAT(vendeur.nom,' ', vendeur.prenom, '\n', adresse.rue, ' ', adresse.numero, '\n7531 TOURNAI\n', pays.code, ' ', pays.nom) AS Étiquette
 FROM vendeur INNER JOIN adresse ON vendeur.adresse = adresse.id
