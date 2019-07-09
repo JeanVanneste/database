@@ -225,7 +225,7 @@ INSERT INTO `ville` (`codePostal`, `nom`) VALUES
 --
 DROP TABLE IF EXISTS `db`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`jean`@`localhost` SQL SECURITY DEFINER VIEW `db`  AS  select `espece` AS `espece`,`vendeur`.`nom` AS `nom`,`vendeur`.`prenom` AS `prenom`,`adresse`.`rue` AS `rue`,`adresse`.`numero` AS `numero`,`ville`.`codePostal` AS `codePostal`,`ville`.`nom` AS `ville`,`pays`.`code` AS `code`,`pays`.`nom` AS `pays`,`stock`.`prix` AS `prix`,`stock`.`stock` AS `stock` from (((((`arbres` join `stock` on((`id` = `stock`.`espece`))) join `vendeur` on((`vendeur`.`id` = `stock`.`vendeur`))) join `adresse` on((`vendeur`.`adresse` = `adresse`.`id`))) join `ville` on((`ville`.`codePostal` = `adresse`.`codePostal`))) join `pays` on((`adresse`.`codePays` = `pays`.`code`))) order by `espece`,`stock`.`prix` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`jean`@`localhost` SQL SECURITY DEFINER VIEW `db`  AS  select `arbres`.`espece` AS `espece`,`vendeur`.`nom` AS `nom`,`vendeur`.`prenom` AS `prenom`,`adresse`.`rue` AS `rue`,`adresse`.`numero` AS `numero`,`ville`.`codePostal` AS `codePostal`,`ville`.`nom` AS `ville`,`pays`.`code` AS `code`,`pays`.`nom` AS `pays`,`stock`.`prix` AS `prix`,`stock`.`stock` AS `stock` from (((((`arbres` join `stock` on((`id` = `stock`.`espece`))) join `vendeur` on((`vendeur`.`id` = `stock`.`vendeur`))) join `adresse` on((`vendeur`.`adresse` = `adresse`.`id`))) join `ville` on((`ville`.`codePostal` = `adresse`.`codePostal`))) join `pays` on((`adresse`.`codePays` = `pays`.`code`))) order by `espece`,`stock`.`prix` ;
 
 --
 -- Index pour les tables exportées
