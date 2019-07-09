@@ -1,4 +1,9 @@
 # Compléments de bases de données
+*Jean Vanneste*
+
+Version colorisé : https://github.com/JeanVanneste/database/blob/master/request.md
+
+Utilisation de MySQL
 
 ## Structure de la base de données
 
