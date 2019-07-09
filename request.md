@@ -1,5 +1,9 @@
 # Compléments de bases de données
 
+## Structure de la base de données
+
+![schema](https://raw.githubusercontent.com/JeanVanneste/database/master/pictures/arbres.png)
+
 ## Requêtes simples
 1. Prix maxima, minima, prix moyens, nombres de vendeurs par espèces
 
